@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <label for="company">Select Company</label>
+        <br><br>
+        <select name="company" id="company" required onchange="run()">
+            <option value="">Select Company</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Tata">TATA</option>
+            <option value="Honda">Honda</option>
+            <option value="Mahindra">Mahindra</option>
+        </select>
+    </div>
+    <br>
+     
+    <div>
+        <label for="car_model">Select Car Model</label>
+        <br><br>
+        <select name="car_model" id="car_model" required>
+            <option value="">Select Car Model</option>
+            <option value="Audi e Tron" data-company="Audi">Audi e Tron</option>
+            <option value="Audi CRI 1.5" data-company="Audi">Audi CRI 1.5</option>
+            <option value="BMW Fantom" data-company="BMW">BMW Fantom</option>
+            <option value="BMW Panther Cri6" data-company="BMW">BMW Panther Cri6</option>
+            <option value="BMW Newlex W" data-company="BMW">BMW Newlex W</option>
+            <option value="TATA Nano" data-company="Tata">TATA Nano</option>
+            <option value="TATA Supreme" data-company="Tata">TATA Supreme</option>
+            <option value="Mahindra Crew" data-company="Mahindra">Mahindra Crew</option>
+            <option value="Mahindra Rollex Cri 1.6" data-company="Mahindra">Mahindra Rollex Cri 1.6</option>
+            <option value="Mahindra Auto" data-company="Mahindra">Mahindra Auto</option>
+            <option value="Honda Auto" data-company="Honda">Honda Auto</option>
+            <option value="Honda Ford 1.2" data-company="Honda">Honda Ford 1.2</option>
+            <option value="Honda Dual Neon" data-company="Honda">Honda Dual Neon</option>
+        </select>
+    </div>
+    
+    <br>
+
+    <script>
+        function run() {
+            var selectedCompany = document.getElementById("company").value;
+            console.log(selectedCompany)
+
+            var carModelsSelect = document.getElementById("car_model");
+            var carModels = carModelsSelect.options;
+
+            // Show all options
+            // When ever we select a Company At first We have to display or show all the Companys Car Model, After that we
+            // Will select our required car_models and Hide other Companies car Models. 
+            for (var i = 0; i < carModels.length; i++) {
+                carModels[i].style.display = "block";
+            }
+
+            // Hide options that do not contain the selected Company Substring
+            for (var i = 0; i < carModels.length; i++) {
+                var carModelCompany = carModels[i].getAttribute("data-company");
+                console.log(carModelCompany)
+                if (carModelCompany && carModelCompany.indexOf(selectedCompany) === -1 && selectedCompany !== "") {
+                    carModels[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+

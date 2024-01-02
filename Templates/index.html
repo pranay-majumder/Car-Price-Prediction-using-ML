@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--For Loading the CSS File make Separate folder "static" for you all "CSS FILE" and "IMAGE"-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div id="main">
+
+    <div id="title">
+    <h1>Car Price Prediction</h1>
+    </div>
+
+    <br><br>
+
+    <div id="body">
+    <div id="value_insert">
+
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+
+            <div>
+                <label for="company" id="parameter">Select Company</label>
+                <br><br>
+                <select name="company" id="company",required onchange="run()">
+                <option value="">Select Company</option>
+                {% for company in company_html %}
+                <option value="{{ company }}">{{ company }}</option>
+                {% endfor %}
+
+            </select>
+            </div>
+            <br>
+        
+            <div>
+                <label for="car_models" id="parameter">Select Car</label>
+                <br><br>
+                <select name="car_models" id="car_models",required>
+                    <option value="">Select Car</option>
+                    {% for car_model in car_model_html %}
+                    <option value="{{ car_model }}" class="car-option" data-company="{{ car_model }}">{{ car_model }}</option>
+                    {% endfor %}
+    
+                </select>
+            </div>
+            <br>
+
+            <div>
+                <label for="year" id="parameter">Select Year</label>
+                <br><br>
+                <select name="year" id="year",required>
+                    <option value="">Select Year</option>
+                    {% for year in year_html %}
+                    <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+    
+                </select>
+            </div>
+            <br>
+
+            <div>
+                <label for="fuel_type" id="parameter">Select Fuel Type</label>
+                <br><br>
+                <select name="fuel_type" id="fuel_type",required>
+                    <option value="">Select Fuel Type</option>
+                    {% for fuel_type in fuel_type_html %}
+                    <option value="{{ fuel_type }}">{{ fuel_type }}</option>
+                    {% endfor %}
+    
+                </select>
+            </div>
+            <br>
+
+            <div>
+                <label for="transmission" id="parameter">Select Transmission</label>
+                <br><br>
+                <select name="transmission" id="transmission",required>
+                    <option value="">Select Transmission</option>
+                    {% for transmission in transmission_html %}
+                    <option value="{{ transmission }}">{{ transmission }}</option>
+                    {% endfor %}
+    
+                </select>
+            </div>
+            <br>
+
+            <div>
+                <label for="kilo_driven" id="parameter">Kilometres Travelled</label>
+                <br><br>
+                <input type="text" id="kilo_driven" name="kilo_driven"
+                       placeholder="Enter the kilometres driven">
+            </div>
+
+
+
+            <br><br>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict Car Price</button>
+            <br>
+            
+          </form>
+          
+          
+    </div>
+
+    <div id="result">
+        <div id="result_box">
+        <h2 id="result_title">Predicted Car Price</h2>
+        <br>
+        <h2 id="result_ans">{{result}}</h2>
+        </div>
+    </div>
+
+    <div>
+
+     </div>
+
+     <script>
+        
+
+            function run() {
+                var selectedCompany = document.getElementById("company").value;
+                console.log(selectedCompany)
+    
+                // Select all the car_models options
+                var carModelsSelect = document.getElementById("car_models");
+                var carModels = carModelsSelect.options;
+    
+                // Show all options
+                // When ever we select a Company At first We have to display or show all the Companys Car Model, After that we
+                // Will select our required car_models and Hide other Companies car Models. 
+                for (var i = 0; i < carModels.length; i++) {
+                    carModels[i].style.display = "block";
+                }
+    
+                // Hide options that do not contain the selected Company Substring
+                for (var i = 0; i < carModels.length; i++) {
+                    var carModelCompany = carModels[i].getAttribute("data-company");
+                    console.log(carModelCompany)
+                    if (carModelCompany && carModelCompany.indexOf(selectedCompany) === -1 && selectedCompany !== "") {
+                        carModels[i].style.display = "none";
+                    }
+                }
+            }
+        
+    </script>
+
+</body>
+</html>

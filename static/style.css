@@ -1,0 +1,103 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+body
+{
+  background-image:url("pic 2.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+#main
+{
+    /*border:2px solid red;*/
+    text-align:center;
+}
+#title
+{
+    /*border:2px solid green;*/
+    font-size:1.5rem;
+    padding:10px;
+    color:white;
+    font-weight:bold;
+    text-shadow: 4px 3px 5px #FF0000;
+}
+#title:hover{
+    cursor: pointer;
+    color: orange;
+    font-size:1.6rem;
+}
+#body
+{
+    display: flex;
+    flex-direction: row;
+    
+}
+#value_insert
+{
+    /*border:2px solid orange;*/
+    flex: 1;
+}
+#result
+{
+    /*border:2px solid purple;*/
+    flex: 1;
+}
+#parameter
+{
+    font-size:1.8rem;
+    font-weight:bold;
+    color:white;
+    text-shadow: 2px 3px 5px rgb(243, 48, 64);
+}
+select,input
+{
+    font-size:1.2rem;
+    width:700px;
+    padding:5px;
+    background-color:white;
+    opacity:0.6;
+    font-weight:550;
+    border-radius:15px;
+    
+}
+select:hover
+{
+    cursor: pointer;
+}
+input:hover{
+    cursor: pointer;
+}
+button
+{
+    font-size:1.3rem;
+    width:710px;
+    padding:10px;
+    background-color:blueviolet;  
+    color:white;
+    font-weight:bold; 
+    border-radius:20px;
+    background: transparent;
+    border:2px solid white;
+}
+button:hover{
+    background-color:blueviolet;
+    cursor: pointer;
+
+}
+
+/*-------------- Result Section------------- */
+
+#result_box{
+    /*border:2px solid orange;*/
+    margin-top:250px;
+}
+#result_title{
+    font-size:2.8rem;
+    color: rgb(176, 245, 222);
+    text-shadow: 4px 4px 5px rgb(49, 7, 218);
+}
+#result_ans{
+    color:white;
+    font-size:2rem;
+}
