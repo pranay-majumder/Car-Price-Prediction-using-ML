@@ -18,7 +18,6 @@
     <h1>Car Price Prediction</h1>
     </div>
 
-    <br><br>
 
     <div id="body">
     <div id="value_insert">
@@ -26,8 +25,8 @@
         <form action="{{ url_for('predict_datapoint') }}" method="post">
 
             <div>
-                <label for="company" id="parameter">Select Company</label>
-                <br><br>
+                <!--<label for="company" id="parameter">Select Company</label>-->
+                <br>
                 <select name="company" id="company",required onchange="run()">
                 <option value="">Select Company</option>
                 {% for company in company_html %}
@@ -39,8 +38,8 @@
             <br>
         
             <div>
-                <label for="car_models" id="parameter">Select Car</label>
-                <br><br>
+                <!--<label for="car_models" id="parameter">Select Car</label>-->
+                <br>
                 <select name="car_models" id="car_models",required>
                     <option value="">Select Car</option>
                     {% for car_model in car_model_html %}
@@ -52,8 +51,8 @@
             <br>
 
             <div>
-                <label for="year" id="parameter">Select Year</label>
-                <br><br>
+                <!--<label for="year" id="parameter">Select Year</label>-->
+                <br>
                 <select name="year" id="year",required>
                     <option value="">Select Year</option>
                     {% for year in year_html %}
@@ -65,8 +64,8 @@
             <br>
 
             <div>
-                <label for="fuel_type" id="parameter">Select Fuel Type</label>
-                <br><br>
+                <!--<label for="fuel_type" id="parameter">Select Fuel Type</label>-->
+                <br>
                 <select name="fuel_type" id="fuel_type",required>
                     <option value="">Select Fuel Type</option>
                     {% for fuel_type in fuel_type_html %}
@@ -78,8 +77,8 @@
             <br>
 
             <div>
-                <label for="transmission" id="parameter">Select Transmission</label>
-                <br><br>
+                <!--<label for="transmission" id="parameter">Select Transmission</label>-->
+                <br>
                 <select name="transmission" id="transmission",required>
                     <option value="">Select Transmission</option>
                     {% for transmission in transmission_html %}
@@ -91,12 +90,11 @@
             <br>
 
             <div>
-                <label for="kilo_driven" id="parameter">Kilometres Travelled</label>
-                <br><br>
+                <!--<label for="kilo_driven" id="parameter">Kilometres Travelled</label>-->
+                <br>
                 <input type="text" id="kilo_driven" name="kilo_driven"
                        placeholder="Enter the kilometres driven">
             </div>
-
 
 
             <br><br>
@@ -111,7 +109,6 @@
     <div id="result">
         <div id="result_box">
         <h2 id="result_title">Predicted Car Price</h2>
-        <br>
         <h2 id="result_ans">{{result}}</h2>
         </div>
     </div>
@@ -119,11 +116,13 @@
     <div>
 
      </div>
-
+     
      <script>
         
 
             function run() {
+
+                // Here "value" means the Company name we provided
                 var selectedCompany = document.getElementById("company").value;
                 console.log(selectedCompany)
     
@@ -142,6 +141,8 @@
                 for (var i = 0; i < carModels.length; i++) {
                     var carModelCompany = carModels[i].getAttribute("data-company");
                     console.log(carModelCompany)
+                    // selected company can't be null
+                    // car Model also must not be null
                     if (carModelCompany && carModelCompany.indexOf(selectedCompany) === -1 && selectedCompany !== "") {
                         carModels[i].style.display = "none";
                     }

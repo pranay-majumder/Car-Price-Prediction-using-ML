@@ -1,12 +1,10 @@
-*{
-    padding:0px;
-    margin:0px;
-}
+
 body
 {
-  background-image:url("pic 2.jpg");
+  background-image:url("pic 3.jpeg");
   background-repeat: no-repeat;
   background-size:cover;
+  background-attachment: fixed;
 }
 #main
 {
@@ -22,26 +20,25 @@ body
     font-weight:bold;
     text-shadow: 4px 3px 5px #FF0000;
 }
-#title:hover{
-    cursor: pointer;
-    color: orange;
-    font-size:1.6rem;
-}
 #body
 {
     display: flex;
     flex-direction: row;
-    
+    justify-content: space-between;
 }
 #value_insert
 {
     /*border:2px solid orange;*/
-    flex: 1;
+    /*flex: 1;*/
+    background-color:black;
+    opacity:0.7;
+    border-radius:25px;
+    padding:15px;
 }
 #result
 {
     /*border:2px solid purple;*/
-    flex: 1;
+   /* flex: 1;*/
 }
 #parameter
 {
@@ -50,16 +47,27 @@ body
     color:white;
     text-shadow: 2px 3px 5px rgb(243, 48, 64);
 }
-select,input
+select
 {
     font-size:1.2rem;
-    width:700px;
+    width:600px;
     padding:5px;
-    background-color:white;
-    opacity:0.6;
+    background-color:rgb(171, 223, 245);
+    opacity:1;
     font-weight:550;
     border-radius:15px;
+    border:2px solid red;
     
+}
+input{
+    font-size:1.2rem;
+    width:590px;
+    padding:5px;
+    background-color:rgb(171, 223, 245);
+    opacity:0.7;
+    font-weight:550;
+    border-radius:15px;
+    border:2px solid red;
 }
 select:hover
 {
@@ -71,14 +79,13 @@ input:hover{
 button
 {
     font-size:1.3rem;
-    width:710px;
+    width:600px;
     padding:10px;
-    background-color:blueviolet;  
     color:white;
     font-weight:bold; 
     border-radius:20px;
     background: transparent;
-    border:2px solid white;
+    border:3px solid red;
 }
 button:hover{
     background-color:blueviolet;
@@ -90,10 +97,15 @@ button:hover{
 
 #result_box{
     /*border:2px solid orange;*/
-    margin-top:250px;
+    margin-top:100px;
+    background-color:black;
+    opacity:0.7;
+    border-radius:25px;
+    padding:15px;
+
 }
 #result_title{
-    font-size:2.8rem;
+    font-size:2.5rem;
     color: rgb(176, 245, 222);
     text-shadow: 4px 4px 5px rgb(49, 7, 218);
 }

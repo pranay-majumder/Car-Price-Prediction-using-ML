@@ -48,6 +48,9 @@ def predict_datapoint():
     companys.insert(0,'Select Company')
 
     
+    # Here 'company','car_models','year','fuel_type','transmission','kilo_driven' are name not id.
+    # request.form.get(' "Name" of The field given in the Form')
+    # Name Should be Exactly Match
     company=request.form.get('company')
     car_model=request.form.get('car_models')
     year=request.form.get('year')
